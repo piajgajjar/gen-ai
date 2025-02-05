@@ -35,31 +35,32 @@ st.markdown(
     }
     #ticker-container {
         position: relative;
-        height: 100px;
+        height: 60px;
         margin: 20px 0;
+        overflow: hidden;
     }
     #ticker-1, #ticker-2 {
-        display: flex;
+        display: inline-block;
         animation-timing-function: linear;
-        font-size: 16px;
-        animation-duration: 20s;
+        font-size: 14px;
+        animation-duration: 30s;
         white-space: nowrap;
+        font-family: 'Courier New', monospace;
     }
     #ticker-1 {
         animation-name: scroll-left;
-        animation-duration: 25s;
+        animation-duration: 40s;
     }
     #ticker-2 {
         animation-name: scroll-right;
-        animation-duration: 30s;
+        animation-duration: 50s;
     }
     #ticker-1 span, #ticker-2 span {
-        margin-right: 30px;
+        margin-right: 20px;
         font-weight: bold;
-        font-family: 'Arial', sans-serif;
         display: inline-block;
         white-space: nowrap;
-        color: black;
+        color: #333;
     }
     #ticker-1 span:nth-child(1), #ticker-2 span:nth-child(1) { color: #FF5733; }
     #ticker-1 span:nth-child(2), #ticker-2 span:nth-child(2) { color: #33FF57; }
@@ -71,7 +72,7 @@ st.markdown(
     #ticker-1 span:nth-child(8), #ticker-2 span:nth-child(8) { color: #8C33FF; }
     #ticker-1 span:nth-child(9), #ticker-2 span:nth-child(9) { color: #33FF8C; }
     #ticker-1 span:nth-child(10), #ticker-2 span:nth-child(10) { color: #FF3333; }
-    /* Repeat these styles for variety */
+    /* Repeat color styles to ensure all words get a unique color */
     @keyframes scroll-left {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
