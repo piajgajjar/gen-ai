@@ -11,6 +11,11 @@ st.markdown(
     <style>
     .main {
         background-color: #f5f7fa;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        min-height: 100vh;
+        padding: 0;
     }
     .stButton > button {
         color: white;
@@ -43,18 +48,20 @@ st.markdown(
     #ticker-1, #ticker-2 {
         display: inline-block;
         animation-timing-function: linear;
-        font-size: 14px;
+        font-size: 16px;
         animation-duration: 50s;
         white-space: nowrap;
-        font-family: 'Courier New', monospace;
+        font-family: 'Calibri', sans-serif;
     }
     #ticker-1 {
         animation-name: scroll-left;
         animation-duration: 50s;
+        color: #192253;
     }
     #ticker-2 {
         animation-name: scroll-right;
         animation-duration: 60s;
+        color: #c23a97;
     }
     #ticker-1 span, #ticker-2 span {
         margin-right: 20px;
@@ -62,17 +69,11 @@ st.markdown(
         display: inline-block;
         white-space: nowrap;
     }
-    #ticker-1 span:nth-child(1), #ticker-2 span:nth-child(1) { color: #FF5733; }
-    #ticker-1 span:nth-child(2), #ticker-2 span:nth-child(2) { color: #33FF57; }
-    #ticker-1 span:nth-child(3), #ticker-2 span:nth-child(3) { color: #3357FF; }
-    #ticker-1 span:nth-child(4), #ticker-2 span:nth-child(4) { color: #F3FF33; }
-    #ticker-1 span:nth-child(5), #ticker-2 span:nth-child(5) { color: #FF33A6; }
-    #ticker-1 span:nth-child(6), #ticker-2 span:nth-child(6) { color: #33FFF1; }
-    #ticker-1 span:nth-child(7), #ticker-2 span:nth-child(7) { color: #FF8C33; }
-    #ticker-1 span:nth-child(8), #ticker-2 span:nth-child(8) { color: #8C33FF; }
-    #ticker-1 span:nth-child(9), #ticker-2 span:nth-child(9) { color: #33FF8C; }
-    #ticker-1 span:nth-child(10), #ticker-2 span:nth-child(10) { color: #FF3333; }
-    /* Repeat color styles for variety */
+    #ticker-1::after, #ticker-2::after {
+        content: attr(data-text); /* Creates infinite loop by repeating text */
+        display: inline-block;
+        white-space: nowrap;
+    }
     @keyframes scroll-left {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
@@ -80,6 +81,10 @@ st.markdown(
     @keyframes scroll-right {
         0% { transform: translateX(-100%); }
         100% { transform: translateX(100%); }
+    }
+    .bottom-section {
+        margin-top: auto;
+        padding: 20px;
     }
     </style>
     """,
@@ -90,7 +95,7 @@ st.markdown(
 st.markdown(
     """
     <div id="ticker-container">
-        <div id="ticker-1">
+        <div id="ticker-1" data-text="Investing Strategies Retirement Planning Compound Interest Stock Market Wealth Management Cryptocurrency Basics Index Funds Mutual Funds Budgeting Tips Emergency Fund Financial Literacy Credit Card Management Inflation Protection Tax Efficiency Debt Reduction Risk Assessment Portfolio Diversification Real Estate Investments Expense Tracking Retirement Accounts Dividend Stocks Insurance Planning Long-Term Savings 401(k) Management Asset Allocation">
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -117,7 +122,7 @@ st.markdown(
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
         </div>
-        <div id="ticker-2">
+        <div id="ticker-2" data-text="Wealth Building Tax Planning Expense Optimization Financial Goals Capital Gains Estate Planning Hedge Funds Social Security Financial Independence Investment Banking Corporate Bonds Day Trading Passive Income Cash Flow Management Health Savings Accounts Economic Indicators Stock Options Interest Rates Financial Planning Monetary Policy Angel Investing Private Equity Venture Capital Startup Funding Financial Risk">
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
@@ -155,10 +160,10 @@ st.title("💬 Money Mentor")
 # Subtitle
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
 
-# User input
+# Move other components to the bottom
+st.markdown('<div class="bottom-section">', unsafe_allow_html=True)
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
-# Move other components to the bottom
 if st.button("Ask", help="Click to get the response"):
     if query.strip():
         with st.spinner("Thinking..."):
@@ -182,6 +187,8 @@ if st.button("Ask", help="Click to get the response"):
                 st.error("❌ Failed to connect to backend. Make sure your API is running.")
     else:
         st.warning("⚠️ Please enter a financial term.")
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 st.caption("🌟 Powered by OpenAI & FAISS")
