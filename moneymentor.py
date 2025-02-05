@@ -35,17 +35,15 @@ st.markdown(
     }
     #ticker-container {
         position: relative;
-        overflow: hidden;
-        white-space: nowrap;
-        height: 50px;
+        height: 100px;
         margin: 20px 0;
     }
     #ticker-1, #ticker-2 {
-        display: inline-block;
-        white-space: nowrap;
+        display: flex;
         animation-timing-function: linear;
         font-size: 16px;
         animation-duration: 20s;
+        white-space: nowrap;
     }
     #ticker-1 {
         animation-name: scroll-left;
@@ -58,14 +56,22 @@ st.markdown(
     #ticker-1 span, #ticker-2 span {
         margin-right: 30px;
         font-weight: bold;
-        color: #4a90e2;
         font-family: 'Arial', sans-serif;
         display: inline-block;
         white-space: nowrap;
+        color: black;
     }
-    #ticker-1 span:nth-child(odd), #ticker-2 span:nth-child(even) {
-        color: #007aff;
-    }
+    #ticker-1 span:nth-child(1), #ticker-2 span:nth-child(1) { color: #FF5733; }
+    #ticker-1 span:nth-child(2), #ticker-2 span:nth-child(2) { color: #33FF57; }
+    #ticker-1 span:nth-child(3), #ticker-2 span:nth-child(3) { color: #3357FF; }
+    #ticker-1 span:nth-child(4), #ticker-2 span:nth-child(4) { color: #F3FF33; }
+    #ticker-1 span:nth-child(5), #ticker-2 span:nth-child(5) { color: #FF33A6; }
+    #ticker-1 span:nth-child(6), #ticker-2 span:nth-child(6) { color: #33FFF1; }
+    #ticker-1 span:nth-child(7), #ticker-2 span:nth-child(7) { color: #FF8C33; }
+    #ticker-1 span:nth-child(8), #ticker-2 span:nth-child(8) { color: #8C33FF; }
+    #ticker-1 span:nth-child(9), #ticker-2 span:nth-child(9) { color: #33FF8C; }
+    #ticker-1 span:nth-child(10), #ticker-2 span:nth-child(10) { color: #FF3333; }
+    /* Repeat these styles for variety */
     @keyframes scroll-left {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
@@ -99,11 +105,8 @@ st.markdown(
             <span>Inflation Protection</span>
             <span>Tax Efficiency</span>
             <span>Debt Reduction</span>
-        </div>
-        <div id="ticker-2">
             <span>Risk Assessment</span>
             <span>Portfolio Diversification</span>
-            <span>Financial Freedom</span>
             <span>Real Estate Investments</span>
             <span>Expense Tracking</span>
             <span>Retirement Accounts</span>
@@ -112,10 +115,33 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
+        </div>
+        <div id="ticker-2">
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
             <span>Financial Goals</span>
+            <span>Capital Gains</span>
+            <span>Estate Planning</span>
+            <span>Hedge Funds</span>
+            <span>Social Security</span>
+            <span>Financial Independence</span>
+            <span>Investment Banking</span>
+            <span>Corporate Bonds</span>
+            <span>Day Trading</span>
+            <span>Passive Income</span>
+            <span>Cash Flow Management</span>
+            <span>Health Savings Accounts</span>
+            <span>Economic Indicators</span>
+            <span>Stock Options</span>
+            <span>Interest Rates</span>
+            <span>Financial Planning</span>
+            <span>Monetary Policy</span>
+            <span>Angel Investing</span>
+            <span>Private Equity</span>
+            <span>Venture Capital</span>
+            <span>Startup Funding</span>
+            <span>Financial Risk</span>
         </div>
     </div>
     """,
