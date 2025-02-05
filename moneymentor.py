@@ -67,15 +67,18 @@ st.markdown(
         display: inline-block;
         white-space: nowrap;
     }
-    #ticker-1::after, #ticker-2::after {
-        content: " "; /* Ensures no extra white space between words */
+    #ticker-1, #ticker-2 {
+        display: inline-flex;
+    }
+    #ticker-1 span:last-child, #ticker-2 span:last-child {
+        margin-right: 0;
     }
     @keyframes scroll-left {
-        0% { transform: translateX(100%); }
+        0% { transform: translateX(0); }
         100% { transform: translateX(-100%); }
     }
     @keyframes scroll-right {
-        0% { transform: translateX(-100%); }
+        0% { transform: translateX(0); }
         100% { transform: translateX(100%); }
     }
     .bottom-section {
@@ -118,8 +121,58 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
+            <span>Investing Strategies</span>
+            <span>Retirement Planning</span>
+            <span>Compound Interest</span>
+            <span>Stock Market</span>
+            <span>Wealth Management</span>
+            <span>Cryptocurrency Basics</span>
+            <span>Index Funds</span>
+            <span>Mutual Funds</span>
+            <span>Budgeting Tips</span>
+            <span>Emergency Fund</span>
+            <span>Financial Literacy</span>
+            <span>Credit Card Management</span>
+            <span>Inflation Protection</span>
+            <span>Tax Efficiency</span>
+            <span>Debt Reduction</span>
+            <span>Risk Assessment</span>
+            <span>Portfolio Diversification</span>
+            <span>Real Estate Investments</span>
+            <span>Expense Tracking</span>
+            <span>Retirement Accounts</span>
+            <span>Dividend Stocks</span>
+            <span>Insurance Planning</span>
+            <span>Long-Term Savings</span>
+            <span>401(k) Management</span>
+            <span>Asset Allocation</span>
         </div>
         <div id="ticker-2">
+            <span>Wealth Building</span>
+            <span>Tax Planning</span>
+            <span>Expense Optimization</span>
+            <span>Financial Goals</span>
+            <span>Capital Gains</span>
+            <span>Estate Planning</span>
+            <span>Hedge Funds</span>
+            <span>Social Security</span>
+            <span>Financial Independence</span>
+            <span>Investment Banking</span>
+            <span>Corporate Bonds</span>
+            <span>Day Trading</span>
+            <span>Passive Income</span>
+            <span>Cash Flow Management</span>
+            <span>Health Savings Accounts</span>
+            <span>Economic Indicators</span>
+            <span>Stock Options</span>
+            <span>Interest Rates</span>
+            <span>Financial Planning</span>
+            <span>Monetary Policy</span>
+            <span>Angel Investing</span>
+            <span>Private Equity</span>
+            <span>Venture Capital</span>
+            <span>Startup Funding</span>
+            <span>Financial Risk</span>
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
