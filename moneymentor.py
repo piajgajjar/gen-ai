@@ -67,16 +67,15 @@ st.markdown(
         display: inline-block;
         white-space: nowrap;
     }
-    #ticker-1, #ticker-2 {
-        display: inline-flex;
-        gap: 0;
+    #ticker-1::after, #ticker-2::after {
+        content: " "; /* Ensures no extra white space between words */
     }
     @keyframes scroll-left {
-        0% { transform: translateX(0); }
+        0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
     }
     @keyframes scroll-right {
-        0% { transform: translateX(0); }
+        0% { transform: translateX(-100%); }
         100% { transform: translateX(100%); }
     }
     .bottom-section {
