@@ -29,6 +29,7 @@ st.markdown(
     h1 {
         color: #007aff;
         font-weight: bold;
+        margin-top: 20px;
     }
     h2, h3 {
         color: #4a90e2;
@@ -36,31 +37,30 @@ st.markdown(
     #ticker-container {
         position: relative;
         height: 60px;
-        margin: 20px 0;
+        margin: 10px 0;
         overflow: hidden;
     }
     #ticker-1, #ticker-2 {
         display: inline-block;
         animation-timing-function: linear;
         font-size: 14px;
-        animation-duration: 30s;
+        animation-duration: 50s;
         white-space: nowrap;
         font-family: 'Courier New', monospace;
     }
     #ticker-1 {
         animation-name: scroll-left;
-        animation-duration: 40s;
+        animation-duration: 50s;
     }
     #ticker-2 {
         animation-name: scroll-right;
-        animation-duration: 50s;
+        animation-duration: 60s;
     }
     #ticker-1 span, #ticker-2 span {
         margin-right: 20px;
         font-weight: bold;
         display: inline-block;
         white-space: nowrap;
-        color: #333;
     }
     #ticker-1 span:nth-child(1), #ticker-2 span:nth-child(1) { color: #FF5733; }
     #ticker-1 span:nth-child(2), #ticker-2 span:nth-child(2) { color: #33FF57; }
@@ -72,7 +72,7 @@ st.markdown(
     #ticker-1 span:nth-child(8), #ticker-2 span:nth-child(8) { color: #8C33FF; }
     #ticker-1 span:nth-child(9), #ticker-2 span:nth-child(9) { color: #33FF8C; }
     #ticker-1 span:nth-child(10), #ticker-2 span:nth-child(10) { color: #FF3333; }
-    /* Repeat color styles to ensure all words get a unique color */
+    /* Repeat color styles for variety */
     @keyframes scroll-left {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
@@ -158,6 +158,7 @@ st.subheader("Ask me about financial terms, and I'll provide definitions, explan
 # User input
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
+# Move other components to the bottom
 if st.button("Ask", help="Click to get the response"):
     if query.strip():
         with st.spinner("Thinking..."):
