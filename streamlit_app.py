@@ -36,7 +36,7 @@ st.markdown(
 )
 
 # Page title
-st.title("💬 Finance Chatbot")
+st.title("💬 Money Mentor")
 
 # Subtitle
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
