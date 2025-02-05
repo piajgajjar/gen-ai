@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="💬 Finance Chatbot", layout="centered")
+st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
 # Styling
 st.markdown(
