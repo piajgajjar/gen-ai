@@ -67,8 +67,9 @@ st.markdown(
         display: inline-block;
         white-space: nowrap;
     }
-    #ticker-1::after, #ticker-2::after {
-        content: ''; /* Ensures no extra white space between words */
+    #ticker-1, #ticker-2 {
+        display: inline-flex;
+        gap: 0;
     }
     @keyframes scroll-left {
         0% { transform: translateX(0); }
