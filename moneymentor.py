@@ -23,7 +23,6 @@ st.markdown(
         border: none;
         border-radius: 8px;
         padding: 0.5rem 1rem;
-        font-weight: bold;
         cursor: pointer;
     }
     input {
@@ -46,7 +45,7 @@ st.markdown(
         overflow: hidden;
     }
     #ticker-1, #ticker-2 {
-        display: inline-block;
+        display: flex;
         animation-timing-function: linear;
         font-size: 16px;
         animation-duration: 50s;
@@ -65,26 +64,24 @@ st.markdown(
     }
     #ticker-1 span, #ticker-2 span {
         margin-right: 20px;
-        font-weight: bold;
         display: inline-block;
         white-space: nowrap;
     }
     #ticker-1::after, #ticker-2::after {
-        content: attr(data-text); /* Creates infinite loop by repeating text */
-        display: inline-block;
-        white-space: nowrap;
+        content: ''; /* Ensures no extra white space between words */
     }
     @keyframes scroll-left {
-        0% { transform: translateX(100%); }
+        0% { transform: translateX(0); }
         100% { transform: translateX(-100%); }
     }
     @keyframes scroll-right {
-        0% { transform: translateX(-100%); }
+        0% { transform: translateX(0); }
         100% { transform: translateX(100%); }
     }
     .bottom-section {
         margin-top: auto;
         padding: 20px;
+        text-align: center;
     }
     </style>
     """,
@@ -95,7 +92,7 @@ st.markdown(
 st.markdown(
     """
     <div id="ticker-container">
-        <div id="ticker-1" data-text="Investing Strategies Retirement Planning Compound Interest Stock Market Wealth Management Cryptocurrency Basics Index Funds Mutual Funds Budgeting Tips Emergency Fund Financial Literacy Credit Card Management Inflation Protection Tax Efficiency Debt Reduction Risk Assessment Portfolio Diversification Real Estate Investments Expense Tracking Retirement Accounts Dividend Stocks Insurance Planning Long-Term Savings 401(k) Management Asset Allocation">
+        <div id="ticker-1">
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -122,7 +119,7 @@ st.markdown(
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
         </div>
-        <div id="ticker-2" data-text="Wealth Building Tax Planning Expense Optimization Financial Goals Capital Gains Estate Planning Hedge Funds Social Security Financial Independence Investment Banking Corporate Bonds Day Trading Passive Income Cash Flow Management Health Savings Accounts Economic Indicators Stock Options Interest Rates Financial Planning Monetary Policy Angel Investing Private Equity Venture Capital Startup Funding Financial Risk">
+        <div id="ticker-2">
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
