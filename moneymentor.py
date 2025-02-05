@@ -33,44 +33,89 @@ st.markdown(
     h2, h3 {
         color: #4a90e2;
     }
-    #wordcloud {
-        height: 200px;
+    #ticker-container {
+        position: relative;
         overflow: hidden;
+        white-space: nowrap;
+        height: 50px;
+        margin: 20px 0;
     }
-    #motion-container {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 150px;
-        background: linear-gradient(90deg, rgba(255,255,255,0.1), rgba(255,255,255,0.5));
-        overflow: hidden;
+    #ticker-1, #ticker-2 {
+        display: inline-block;
+        white-space: nowrap;
+        animation-timing-function: linear;
+        font-size: 16px;
+        animation-duration: 20s;
     }
-    #motion-content {
-        display: flex;
-        animation: scroll-left 15s linear infinite;
+    #ticker-1 {
+        animation-name: scroll-left;
+        animation-duration: 25s;
+    }
+    #ticker-2 {
+        animation-name: scroll-right;
+        animation-duration: 30s;
+    }
+    #ticker-1 span, #ticker-2 span {
+        margin-right: 30px;
+        font-weight: bold;
+        color: #4a90e2;
+        font-family: 'Arial', sans-serif;
+        display: inline-block;
+        white-space: nowrap;
+    }
+    #ticker-1 span:nth-child(odd), #ticker-2 span:nth-child(even) {
+        color: #007aff;
     }
     @keyframes scroll-left {
         0% { transform: translateX(100%); }
         100% { transform: translateX(-100%); }
+    }
+    @keyframes scroll-right {
+        0% { transform: translateX(-100%); }
+        100% { transform: translateX(100%); }
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Create motion container at the top
+# Create two scrolling tickers at the top
 st.markdown(
     """
-    <div id="motion-container">
-        <div id="motion-content">
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">Investing</span>
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">Compound Interest</span>
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">Budgeting</span>
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">Savings</span>
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">401(k)</span>
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">Retirement</span>
-            <span style="margin-right: 50px; font-weight: bold; font-size: 16px; color: #007aff;">Cryptocurrency</span>
+    <div id="ticker-container">
+        <div id="ticker-1">
+            <span>Investing Strategies</span>
+            <span>Retirement Planning</span>
+            <span>Compound Interest</span>
+            <span>Stock Market</span>
+            <span>Wealth Management</span>
+            <span>Cryptocurrency Basics</span>
+            <span>Index Funds</span>
+            <span>Mutual Funds</span>
+            <span>Budgeting Tips</span>
+            <span>Emergency Fund</span>
+            <span>Financial Literacy</span>
+            <span>Credit Card Management</span>
+            <span>Inflation Protection</span>
+            <span>Tax Efficiency</span>
+            <span>Debt Reduction</span>
+        </div>
+        <div id="ticker-2">
+            <span>Risk Assessment</span>
+            <span>Portfolio Diversification</span>
+            <span>Financial Freedom</span>
+            <span>Real Estate Investments</span>
+            <span>Expense Tracking</span>
+            <span>Retirement Accounts</span>
+            <span>Dividend Stocks</span>
+            <span>Insurance Planning</span>
+            <span>Long-Term Savings</span>
+            <span>401(k) Management</span>
+            <span>Asset Allocation</span>
+            <span>Wealth Building</span>
+            <span>Tax Planning</span>
+            <span>Expense Optimization</span>
+            <span>Financial Goals</span>
         </div>
     </div>
     """,
@@ -82,18 +127,6 @@ st.title("💬 Money Mentor")
 
 # Subtitle
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
-
-# Word cloud or motion area at the bottom
-st.markdown(
-    """
-    <div id="wordcloud">
-        <marquee behavior="scroll" direction="left" style="color: #4a90e2; font-weight: bold; font-size: 14px;">
-            Savings | Cryptocurrency | Index Funds | Portfolio Management | Compound Interest | Retirement | Budgeting | Inflation | Investing | Financial Planning
-        </marquee>
-    </div>
-    """,
-    unsafe_allow_html=True
-)
 
 # User input
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
