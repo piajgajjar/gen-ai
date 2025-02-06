@@ -72,14 +72,14 @@ st.markdown(
 
     /* Keyframes for Left-to-Right Ticker */
     @keyframes ticker-left {
-        from { transform: translateX(0); }
-        to { transform: translateX(-50%); }
+        from { transform: translateX(-50%); }
+        to { transform: translateX(0%); }
     }
 
     /* Keyframes for Right-to-Left Ticker */
     @keyframes ticker-right {
-        from { transform: translateX(-50%); }
-        to { transform: translateX(0); }
+        from { transform: translateX(0%); }
+        to { transform: translateX(-50%); }
     }
     </style>
     """,
