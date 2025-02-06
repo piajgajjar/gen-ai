@@ -55,18 +55,19 @@ st.markdown(
 
     /* Animation for Ticker 1 (Left to Right) */
     .ticker-1 {
-        animation: ticker-left 30s linear infinite;
+        animation: ticker-left 45s linear infinite;
+        color: #3c19a2;
     }
 
     /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
-        animation: ticker-right 30s linear infinite;
+        animation: ticker-right 45s linear infinite;
+        color: #820b5c;
     }
 
     .ticker span {
         font-size: 16px;
         padding: 0 20px;
-        font-weight: bold;
         font-family: 'Calibri', sans-serif;
     }
 
