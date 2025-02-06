@@ -39,6 +39,11 @@ st.markdown(
         margin: 5px 0; /* Minimal margin for alignment */
     }
 
+    /* Spacing between subtitle and input field */
+    .subheader {
+        margin-bottom: 20px !important;
+    }
+
     /* Ticker Styles */
     .ticker-wrapper {
         width: 100%;
@@ -159,8 +164,9 @@ st.markdown(
 # Page title
 st.title("💬 Money Mentor")
 
-# Subtitle
+# Subtitle with extra spacing
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
+st.markdown("<div class='subheader'></div>", unsafe_allow_html=True)  # Adds spacing below the subtitle
 
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
