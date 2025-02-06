@@ -51,7 +51,7 @@ st.markdown(
     .ticker {
         display: inline-flex;
         flex-wrap: nowrap;
-        animation: ticker-animation 10s linear infinite;
+        animation: ticker-animation 15s linear infinite;
     }
 
     .ticker span {
@@ -63,8 +63,8 @@ st.markdown(
 
     /* Animation for seamless scrolling */
     @keyframes ticker-animation {
-        from { transform: translateX(0%); }
-        to { transform: translateX(-100%); }
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
     }
     </style>
     """,
@@ -76,6 +76,7 @@ st.markdown(
     """
     <div class="ticker-wrapper">
         <div class="ticker">
+            <!-- Content for ticker 1 -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -101,7 +102,7 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
-            <!-- Duplicate content -->
+            <!-- Duplicate content for seamless looping -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -131,6 +132,7 @@ st.markdown(
     </div>
     <div class="ticker-wrapper">
         <div class="ticker">
+            <!-- Content for ticker 2 -->
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
@@ -156,7 +158,7 @@ st.markdown(
             <span>Venture Capital</span>
             <span>Startup Funding</span>
             <span>Financial Risk</span>
-            <!-- Duplicate content -->
+            <!-- Duplicate content for seamless looping -->
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
