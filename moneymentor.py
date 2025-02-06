@@ -7,49 +7,6 @@ st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 # Backend API URL
 API_URL = "http://localhost:5000/chat"  # Ensure Flask backend is running
 
-st.title("💬 Money Mentor")
-st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
-
-# Extra spacing
-st.markdown("<div class='extra-space'></div>", unsafe_allow_html=True)
-
-query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
-
-if st.button("Ask", help="Click to get the response"):
-    if query.strip():
-        with st.spinner("Thinking..."):
-            try:
-                response = requests.post(API_URL, json={"query": query})
-                data = response.json()
-                
-                if "error" in data:
-                    st.error("❌ " + data["error"])
-                else:
-                    st.success("Here are your results! 🎉")
-                    st.subheader("📘 Concise Definition")
-                    st.write(data.get("concise_definition", "No definition found."))
-
-                    st.subheader("🔍 Simplified Explanation")
-                    st.write(data.get("simplified_explanation", "No explanation available."))
-
-                    st.subheader("📚 Recommended Sources")
-                    st.write(data.get("sources", "No sources found."))
-            except requests.exceptions.RequestException as e:
-                st.error("❌ Backend API is not reachable. Ensure it's running.")
-    else:
-        st.warning("⚠️ Please enter a financial term.")
-
-st.markdown("---")
-st.caption("🌟 Powered by OpenAI & FAISS")
-
-#_______________________________
-
-import streamlit as st
-import requests
-
-# Set Streamlit page configuration
-st.set_page_config(page_title="💬 Money Mentor", layout="centered")
-
 # Custom CSS for Styling
 st.markdown(
     """
