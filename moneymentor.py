@@ -1,11 +1,10 @@
 import streamlit as st
 import requests
-import streamlit.components.v1 as components
 
 # Set Streamlit page configuration
 st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
-# Custom CSS for styling
+# Custom CSS for styling and smooth infinite ticker animation
 st.markdown(
     """
     <style>
@@ -38,64 +37,48 @@ st.markdown(
     h2, h3 {
         color: #4a90e2;
     }
-    #ticker-container {
-        position: relative;
-        height: 60px;
-        margin: 10px 0;
+
+    /* Ticker Styles */
+    .ticker-wrapper {
+        width: 100%;
         overflow: hidden;
-    }
-    #ticker-1, #ticker-2 {
-        display: flex;
-        animation-timing-function: linear;
-        font-size: 16px;
-        animation-duration: 50s;
         white-space: nowrap;
+        position: relative;
+        background: #fff;
+        padding: 8px 0;
+    }
+    
+    .ticker {
+        display: flex;
+        flex-wrap: nowrap;
+        min-width: 100%;
+        animation: ticker-animation 30s linear infinite;
+    }
+
+    .ticker span {
+        font-size: 16px;
+        padding: 0 20px;
+        color: #192253;
+        font-weight: bold;
         font-family: 'Calibri', sans-serif;
     }
-    #ticker-1 {
-        animation-name: scroll-left;
-        animation-duration: 50s;
-        color: #192253;
+
+    /* Create seamless animation */
+    @keyframes ticker-animation {
+        from { transform: translateX(0%); }
+        to { transform: translateX(-50%); }
     }
-    #ticker-2 {
-        animation-name: scroll-right;
-        animation-duration: 60s;
-        color: #c23a97;
-    }
-    #ticker-1 span, #ticker-2 span {
-        margin-right: 20px;
-        display: inline-block;
-        white-space: nowrap;
-    }
-    #ticker-1, #ticker-2 {
-        display: inline-flex;
-    }
-    #ticker-1 span:last-child, #ticker-2 span:last-child {
-        margin-right: 0;
-    }
-    @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-100%); }
-    }
-    @keyframes scroll-right {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(100%); }
-    }
-    .bottom-section {
-        margin-top: auto;
-        padding: 20px;
-        text-align: center;
-    }
+    
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Create two scrolling tickers at the top
+# Create a continuously scrolling ticker
 st.markdown(
     """
-    <div id="ticker-container">
-        <div id="ticker-1">
+    <div class="ticker-wrapper">
+        <div class="ticker">
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -146,58 +129,6 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
-        </div>
-        <div id="ticker-2">
-            <span>Wealth Building</span>
-            <span>Tax Planning</span>
-            <span>Expense Optimization</span>
-            <span>Financial Goals</span>
-            <span>Capital Gains</span>
-            <span>Estate Planning</span>
-            <span>Hedge Funds</span>
-            <span>Social Security</span>
-            <span>Financial Independence</span>
-            <span>Investment Banking</span>
-            <span>Corporate Bonds</span>
-            <span>Day Trading</span>
-            <span>Passive Income</span>
-            <span>Cash Flow Management</span>
-            <span>Health Savings Accounts</span>
-            <span>Economic Indicators</span>
-            <span>Stock Options</span>
-            <span>Interest Rates</span>
-            <span>Financial Planning</span>
-            <span>Monetary Policy</span>
-            <span>Angel Investing</span>
-            <span>Private Equity</span>
-            <span>Venture Capital</span>
-            <span>Startup Funding</span>
-            <span>Financial Risk</span>
-            <span>Wealth Building</span>
-            <span>Tax Planning</span>
-            <span>Expense Optimization</span>
-            <span>Financial Goals</span>
-            <span>Capital Gains</span>
-            <span>Estate Planning</span>
-            <span>Hedge Funds</span>
-            <span>Social Security</span>
-            <span>Financial Independence</span>
-            <span>Investment Banking</span>
-            <span>Corporate Bonds</span>
-            <span>Day Trading</span>
-            <span>Passive Income</span>
-            <span>Cash Flow Management</span>
-            <span>Health Savings Accounts</span>
-            <span>Economic Indicators</span>
-            <span>Stock Options</span>
-            <span>Interest Rates</span>
-            <span>Financial Planning</span>
-            <span>Monetary Policy</span>
-            <span>Angel Investing</span>
-            <span>Private Equity</span>
-            <span>Venture Capital</span>
-            <span>Startup Funding</span>
-            <span>Financial Risk</span>
         </div>
     </div>
     """,
