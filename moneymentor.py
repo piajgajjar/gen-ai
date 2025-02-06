@@ -4,7 +4,7 @@ import requests
 # Set Streamlit page configuration
 st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
-# Custom CSS for styling and smooth infinite ticker animation
+# Custom CSS for styling and seamless infinite ticker animation
 st.markdown(
     """
     <style>
@@ -49,9 +49,9 @@ st.markdown(
     }
 
     .ticker {
-        display: flex;
+        display: inline-flex;
         flex-wrap: nowrap;
-        min-width: 200%; /* Ensure smooth looping */
+        animation: ticker-animation 10s linear infinite;
     }
 
     .ticker span {
@@ -61,36 +61,47 @@ st.markdown(
         font-family: 'Calibri', sans-serif;
     }
 
-    /* Animation for Ticker 1 (Left to Right) */
-    .ticker-1 {
-        animation: ticker-animation-left 10s linear infinite;
-    }
-
-    @keyframes ticker-animation-left {
-        from { transform: translateX(-100%); }
-        to { transform: translateX(100%); }
-    }
-
-    /* Animation for Ticker 2 (Right to Left) */
-    .ticker-2 {
-        animation: ticker-animation-right 10s linear infinite;
-    }
-
-    @keyframes ticker-animation-right {
-        from { transform: translateX(100%); }
+    /* Animation for seamless scrolling */
+    @keyframes ticker-animation {
+        from { transform: translateX(0%); }
         to { transform: translateX(-100%); }
     }
-    
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Render two tickers
+# Render two tickers with duplicated content for seamless scrolling
 st.markdown(
     """
     <div class="ticker-wrapper">
-        <div class="ticker ticker-1">
+        <div class="ticker">
+            <span>Investing Strategies</span>
+            <span>Retirement Planning</span>
+            <span>Compound Interest</span>
+            <span>Stock Market</span>
+            <span>Wealth Management</span>
+            <span>Cryptocurrency Basics</span>
+            <span>Index Funds</span>
+            <span>Mutual Funds</span>
+            <span>Budgeting Tips</span>
+            <span>Emergency Fund</span>
+            <span>Financial Literacy</span>
+            <span>Credit Card Management</span>
+            <span>Inflation Protection</span>
+            <span>Tax Efficiency</span>
+            <span>Debt Reduction</span>
+            <span>Risk Assessment</span>
+            <span>Portfolio Diversification</span>
+            <span>Real Estate Investments</span>
+            <span>Expense Tracking</span>
+            <span>Retirement Accounts</span>
+            <span>Dividend Stocks</span>
+            <span>Insurance Planning</span>
+            <span>Long-Term Savings</span>
+            <span>401(k) Management</span>
+            <span>Asset Allocation</span>
+            <!-- Duplicate content -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -118,9 +129,34 @@ st.markdown(
             <span>Asset Allocation</span>
         </div>
     </div>
-    
     <div class="ticker-wrapper">
-        <div class="ticker ticker-2">
+        <div class="ticker">
+            <span>Wealth Building</span>
+            <span>Tax Planning</span>
+            <span>Expense Optimization</span>
+            <span>Financial Goals</span>
+            <span>Capital Gains</span>
+            <span>Estate Planning</span>
+            <span>Hedge Funds</span>
+            <span>Social Security</span>
+            <span>Financial Independence</span>
+            <span>Investment Banking</span>
+            <span>Corporate Bonds</span>
+            <span>Day Trading</span>
+            <span>Passive Income</span>
+            <span>Cash Flow Management</span>
+            <span>Health Savings Accounts</span>
+            <span>Economic Indicators</span>
+            <span>Stock Options</span>
+            <span>Interest Rates</span>
+            <span>Financial Planning</span>
+            <span>Monetary Policy</span>
+            <span>Angel Investing</span>
+            <span>Private Equity</span>
+            <span>Venture Capital</span>
+            <span>Startup Funding</span>
+            <span>Financial Risk</span>
+            <!-- Duplicate content -->
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
