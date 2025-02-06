@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="💬 Money Mentor", layout="wide")
+st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
 # Custom CSS for styling and seamless infinite ticker animation
 st.markdown(
@@ -12,10 +12,11 @@ st.markdown(
         background-color: #f5f7fa;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Align content to the top */
+        justify-content: space-between;
         min-height: 100vh;
-        padding: 0 20px; /* Minimal padding for alignment */
+        padding: 10px 20px; /* Minimal padding */
     }
+    
     .stButton > button {
         color: white;
         background: linear-gradient(90deg, #4a90e2, #007aff);
@@ -24,19 +25,24 @@ st.markdown(
         padding: 0.5rem 1rem;
         cursor: pointer;
     }
+    
     input {
         border: 1px solid #e2e8f0;
         padding: 0.75rem;
         border-radius: 8px;
     }
+
     h1 {
         color: #007aff;
         font-weight: bold;
-        margin: 10px 0; /* Minimal margin for alignment */
+        margin: 10px 0; /* Minimal margin */
+        text-align: center;
     }
+
     h2, h3 {
         color: #4a90e2;
-        margin: 5px 0; /* Minimal margin for alignment */
+        margin: 5px 0;
+        text-align: center;
     }
 
     /* Ticker Styles */
@@ -47,26 +53,26 @@ st.markdown(
         position: relative;
         background: #fff;
         padding: 8px 0;
-        margin-bottom: 10px; /* Slight spacing between tickers */
+        margin-bottom: 10px; /* Space between tickers */
     }
 
     .ticker {
         display: inline-block;
-        min-width: 200%; /* Ensures the content repeats seamlessly */
+        min-width: 200%; /* Ensures seamless looping */
     }
 
     /* Animation for Ticker 1 (Left to Right) */
     .ticker-1 {
         animation: ticker-left 45s linear infinite;
         color: #3c19a2;
-        font-weight: bold; /* Bold text */
+        font-weight: bold;
     }
 
     /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
         animation: ticker-right 45s linear infinite;
         color: #820b5c;
-        font-weight: bold; /* Bold text */
+        font-weight: bold;
     }
 
     .ticker span {
@@ -86,12 +92,19 @@ st.markdown(
         from { transform: translateX(0%); }
         to { transform: translateX(-50%); }
     }
+
+    /* Bottom section styling */
+    .bottom-section {
+        margin-top: auto;
+        padding: 20px;
+        text-align: center;
+    }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Render two tickers with duplicated content for seamless scrolling
+# --- Top Section (Tickers & Title) ---
 st.markdown(
     """
     <div class="ticker-wrapper">
@@ -156,11 +169,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Page title
 st.title("💬 Money Mentor")
-
-# Subtitle
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
+
+# --- Bottom Section (Input & Button) ---
+st.markdown('<div class="bottom-section">', unsafe_allow_html=True)
 
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
@@ -187,6 +200,8 @@ if st.button("Ask", help="Click to get the response"):
                 st.error("❌ Failed to connect to backend. Make sure your API is running.")
     else:
         st.warning("⚠️ Please enter a financial term.")
+
+st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 st.caption("🌟 Powered by OpenAI & FAISS")
