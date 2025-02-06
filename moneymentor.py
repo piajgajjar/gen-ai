@@ -4,7 +4,7 @@ import requests
 # Set Streamlit page configuration
 st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
-# Custom CSS for styling and seamless infinite ticker animation
+# Custom CSS for styling
 st.markdown(
     """
     <style>
@@ -12,9 +12,9 @@ st.markdown(
         background-color: #f5f7fa;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start; /* Align content to the top */
+        justify-content: flex-start;
         min-height: 100vh;
-        padding: 0 20px; /* Minimal padding for alignment */
+        padding: 0 20px;
     }
     .stButton > button {
         color: white;
@@ -32,16 +32,16 @@ st.markdown(
     h1 {
         color: #007aff;
         font-weight: bold;
-        margin: 10px 0; /* Minimal margin for alignment */
+        margin: 10px 0;
     }
     h2, h3 {
         color: #4a90e2;
-        margin: 5px 0; /* Minimal margin for alignment */
+        margin: 5px 0;
     }
-
-    /* Spacing between subtitle and input field */
-    .subheader {
-        margin-bottom: 20px !important;
+    
+    /* Spacing between subtitle and input */
+    .extra-space {
+        margin-bottom: 30px;
     }
 
     /* Ticker Styles */
@@ -52,26 +52,24 @@ st.markdown(
         position: relative;
         background: #fff;
         padding: 8px 0;
-        margin-bottom: 10px; /* Slight spacing between tickers */
+        margin-bottom: 10px;
     }
 
     .ticker {
         display: inline-block;
-        min-width: 200%; /* Ensures the content repeats seamlessly */
+        min-width: 200%;
     }
 
-    /* Animation for Ticker 1 (Left to Right) */
     .ticker-1 {
         animation: ticker-left 45s linear infinite;
         color: #3c19a2;
-        font-weight: bold; /* Bold text */
+        font-weight: bold;
     }
 
-    /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
         animation: ticker-right 45s linear infinite;
         color: #820b5c;
-        font-weight: bold; /* Bold text */
+        font-weight: bold;
     }
 
     .ticker span {
@@ -80,13 +78,11 @@ st.markdown(
         font-family: 'Calibri', sans-serif;
     }
 
-    /* Keyframes for Left-to-Right Ticker */
     @keyframes ticker-left {
         from { transform: translateX(-50%); }
         to { transform: translateX(0%); }
     }
 
-    /* Keyframes for Right-to-Left Ticker */
     @keyframes ticker-right {
         from { transform: translateX(0%); }
         to { transform: translateX(-50%); }
@@ -96,7 +92,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Render two tickers with duplicated content for seamless scrolling
+# Render the tickers
 st.markdown(
     """
     <div class="ticker-wrapper">
@@ -164,10 +160,11 @@ st.markdown(
 # Page title
 st.title("💬 Money Mentor")
 
-# Subtitle with extra spacing
+# Subtitle with added spacing
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
-st.markdown("<div class='subheader'></div>", unsafe_allow_html=True)  # Adds spacing below the subtitle
+st.markdown("<div class='extra-space'></div>", unsafe_allow_html=True)  # Adds spacing below subtitle
 
+# Input field
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
 if st.button("Ask", help="Click to get the response"):
