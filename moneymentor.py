@@ -55,12 +55,12 @@ st.markdown(
 
     /* Animation for Ticker 1 (Left to Right) */
     .ticker-1 {
-        animation: ticker-left 20s linear infinite;
+        animation: ticker-left 30s linear infinite;
     }
 
     /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
-        animation: ticker-right 20s linear infinite;
+        animation: ticker-right 30s linear infinite;
     }
 
     .ticker span {
