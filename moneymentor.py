@@ -14,7 +14,7 @@ st.markdown(
         flex-direction: column;
         justify-content: flex-start; /* Align content to the top */
         min-height: 100vh;
-        padding: 10px 20px; /* Reduce padding */
+        padding: 0 20px; /* Minimal padding for alignment */
     }
     .stButton > button {
         color: white;
@@ -32,14 +32,11 @@ st.markdown(
     h1 {
         color: #007aff;
         font-weight: bold;
-        margin: 0; /* Remove margin */
+        margin: 10px 0; /* Minimal margin for alignment */
     }
     h2, h3 {
         color: #4a90e2;
-        margin: 0; /* Remove margin */
-    }
-    .stTextInput {
-        margin-top: 10px; /* Add spacing for the input box */
+        margin: 5px 0; /* Minimal margin for alignment */
     }
 
     /* Ticker Styles */
@@ -50,7 +47,7 @@ st.markdown(
         position: relative;
         background: #fff;
         padding: 8px 0;
-        margin-bottom: 15px; /* Add spacing between tickers */
+        margin-bottom: 10px; /* Slight spacing between tickers */
     }
 
     .ticker {
@@ -62,14 +59,14 @@ st.markdown(
     .ticker-1 {
         animation: ticker-left 45s linear infinite;
         color: #3c19a2;
-        font-weight: bold;
+        font-weight: bold; /* Bold text */
     }
 
     /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
         animation: ticker-right 45s linear infinite;
         color: #820b5c;
-        font-weight: bold;
+        font-weight: bold; /* Bold text */
     }
 
     .ticker span {
@@ -124,8 +121,6 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
-            <span>Investing Strategies</span>
-            <span>Retirement Planning</span>
         </div>
     </div>
     <div class="ticker-wrapper">
