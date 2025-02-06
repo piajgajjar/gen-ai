@@ -2,7 +2,7 @@ import streamlit as st
 import requests
 
 # Set Streamlit page configuration
-st.set_page_config(page_title="💬 Money Mentor", layout="centered")
+st.set_page_config(page_title="💬 Money Mentor", layout="wide")
 
 # Custom CSS for styling and seamless infinite ticker animation
 st.markdown(
@@ -12,9 +12,9 @@ st.markdown(
         background-color: #f5f7fa;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start; /* Align content to the top */
         min-height: 100vh;
-        padding: 0;
+        padding: 10px 20px; /* Reduce padding */
     }
     .stButton > button {
         color: white;
@@ -32,10 +32,14 @@ st.markdown(
     h1 {
         color: #007aff;
         font-weight: bold;
-        margin-top: 20px;
+        margin: 0; /* Remove margin */
     }
     h2, h3 {
         color: #4a90e2;
+        margin: 0; /* Remove margin */
+    }
+    .stTextInput {
+        margin-top: 10px; /* Add spacing for the input box */
     }
 
     /* Ticker Styles */
@@ -46,6 +50,7 @@ st.markdown(
         position: relative;
         background: #fff;
         padding: 8px 0;
+        margin-bottom: 15px; /* Add spacing between tickers */
     }
 
     .ticker {
@@ -57,12 +62,14 @@ st.markdown(
     .ticker-1 {
         animation: ticker-left 45s linear infinite;
         color: #3c19a2;
+        font-weight: bold;
     }
 
     /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
         animation: ticker-right 45s linear infinite;
         color: #820b5c;
+        font-weight: bold;
     }
 
     .ticker span {
@@ -92,7 +99,6 @@ st.markdown(
     """
     <div class="ticker-wrapper">
         <div class="ticker ticker-1">
-            <!-- Content for ticker 1 -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -118,63 +124,12 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
-            <!-- Duplicate content for seamless looping -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
-            <span>Compound Interest</span>
-            <span>Stock Market</span>
-            <span>Wealth Management</span>
-            <span>Cryptocurrency Basics</span>
-            <span>Index Funds</span>
-            <span>Mutual Funds</span>
-            <span>Budgeting Tips</span>
-            <span>Emergency Fund</span>
-            <span>Financial Literacy</span>
-            <span>Credit Card Management</span>
-            <span>Inflation Protection</span>
-            <span>Tax Efficiency</span>
-            <span>Debt Reduction</span>
-            <span>Risk Assessment</span>
-            <span>Portfolio Diversification</span>
-            <span>Real Estate Investments</span>
-            <span>Expense Tracking</span>
-            <span>Retirement Accounts</span>
-            <span>Dividend Stocks</span>
-            <span>Insurance Planning</span>
-            <span>Long-Term Savings</span>
-            <span>401(k) Management</span>
-            <span>Asset Allocation</span>
         </div>
     </div>
     <div class="ticker-wrapper">
         <div class="ticker ticker-2">
-            <!-- Content for ticker 2 -->
-            <span>Wealth Building</span>
-            <span>Tax Planning</span>
-            <span>Expense Optimization</span>
-            <span>Financial Goals</span>
-            <span>Capital Gains</span>
-            <span>Estate Planning</span>
-            <span>Hedge Funds</span>
-            <span>Social Security</span>
-            <span>Financial Independence</span>
-            <span>Investment Banking</span>
-            <span>Corporate Bonds</span>
-            <span>Day Trading</span>
-            <span>Passive Income</span>
-            <span>Cash Flow Management</span>
-            <span>Health Savings Accounts</span>
-            <span>Economic Indicators</span>
-            <span>Stock Options</span>
-            <span>Interest Rates</span>
-            <span>Financial Planning</span>
-            <span>Monetary Policy</span>
-            <span>Angel Investing</span>
-            <span>Private Equity</span>
-            <span>Venture Capital</span>
-            <span>Startup Funding</span>
-            <span>Financial Risk</span>
-            <!-- Duplicate content for seamless looping -->
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
