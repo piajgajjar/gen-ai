@@ -12,37 +12,20 @@ st.markdown(
         background-color: #f5f7fa;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: flex-start; /* Align everything at the top */
         min-height: 100vh;
-        padding: 10px 20px; /* Minimal padding */
-    }
-    
-    .stButton > button {
-        color: white;
-        background: linear-gradient(90deg, #4a90e2, #007aff);
-        border: none;
-        border-radius: 8px;
-        padding: 0.5rem 1rem;
-        cursor: pointer;
-    }
-    
-    input {
-        border: 1px solid #e2e8f0;
-        padding: 0.75rem;
-        border-radius: 8px;
+        padding: 5px 10px; /* Reduce padding so content stays at the top */
     }
 
+    /* Move title and subtitle to the left */
     h1 {
-        color: #007aff;
-        font-weight: bold;
-        margin: 10px 0; /* Minimal margin */
-        text-align: center;
+        margin: 5px 0;
+        text-align: left;
     }
 
     h2, h3 {
-        color: #4a90e2;
-        margin: 5px 0;
-        text-align: center;
+        margin: 2px 0;
+        text-align: left;
     }
 
     /* Ticker Styles */
@@ -53,7 +36,7 @@ st.markdown(
         position: relative;
         background: #fff;
         padding: 8px 0;
-        margin-bottom: 10px; /* Space between tickers */
+        margin-bottom: 5px; /* Reduce space between tickers */
     }
 
     .ticker {
@@ -93,10 +76,10 @@ st.markdown(
         to { transform: translateX(-50%); }
     }
 
-    /* Bottom section styling */
+    /* Move input box and button to bottom */
     .bottom-section {
-        margin-top: auto;
-        padding: 20px;
+        margin-top: auto; /* Pushes this section to the bottom */
+        padding: 10px 0; /* Optional padding for spacing */
         text-align: center;
     }
     </style>
@@ -169,8 +152,8 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-st.title("💬 Money Mentor")
-st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
+st.markdown("<h1>💬 Money Mentor</h1>", unsafe_allow_html=True)
+st.markdown("<h2>Ask me about financial terms, and I'll provide definitions, explanations, and sources!</h2>", unsafe_allow_html=True)
 
 # --- Bottom Section (Input & Button) ---
 st.markdown('<div class="bottom-section">', unsafe_allow_html=True)
