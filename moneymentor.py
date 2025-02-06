@@ -4,10 +4,7 @@ import requests
 # Set Streamlit page configuration
 st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
-# Backend API URL
-API_URL = "http://localhost:5000/chat"  # Ensure Flask backend is running
-
-# Custom CSS for Styling
+# Custom CSS for styling and seamless infinite ticker animation
 st.markdown(
     """
     <style>
@@ -15,14 +12,36 @@ st.markdown(
         background-color: #f5f7fa;
         display: flex;
         flex-direction: column;
-        justify-content: flex-start;
+        justify-content: flex-start; /* Align content to the top */
         min-height: 100vh;
-        padding: 20px;
+        padding: 0 20px; /* Minimal padding for alignment */
+    }
+    .stButton > button {
+        color: white;
+        background: linear-gradient(90deg, #4a90e2, #007aff);
+        border: none;
+        border-radius: 8px;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+    }
+    input {
+        border: 1px solid #e2e8f0;
+        padding: 0.75rem;
+        border-radius: 8px;
+    }
+    h1 {
+        color: #007aff;
+        font-weight: bold;
+        margin: 10px 0; /* Minimal margin for alignment */
+    }
+    h2, h3 {
+        color: #4a90e2;
+        margin: 5px 0; /* Minimal margin for alignment */
     }
 
-    /* Extra spacing below subtitle */
-    .extra-space {
-        margin-bottom: 50px;
+    /* Spacing between subtitle and input field */
+    .subheader {
+        margin-bottom: 20px !important;
     }
 
     /* Ticker Styles */
@@ -33,24 +52,26 @@ st.markdown(
         position: relative;
         background: #fff;
         padding: 8px 0;
-        margin-bottom: 10px;
+        margin-bottom: 10px; /* Slight spacing between tickers */
     }
 
     .ticker {
         display: inline-block;
-        min-width: 200%;
+        min-width: 200%; /* Ensures the content repeats seamlessly */
     }
 
+    /* Animation for Ticker 1 (Left to Right) */
     .ticker-1 {
-        animation: ticker-left 60s linear infinite;
+        animation: ticker-left 45s linear infinite;
         color: #3c19a2;
-        font-weight: bold;
+        font-weight: bold; /* Bold text */
     }
 
+    /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
-        animation: ticker-right 60s linear infinite;
+        animation: ticker-right 45s linear infinite;
         color: #820b5c;
-        font-weight: bold;
+        font-weight: bold; /* Bold text */
     }
 
     .ticker span {
@@ -59,11 +80,13 @@ st.markdown(
         font-family: 'Calibri', sans-serif;
     }
 
+    /* Keyframes for Left-to-Right Ticker */
     @keyframes ticker-left {
         from { transform: translateX(-50%); }
         to { transform: translateX(0%); }
     }
 
+    /* Keyframes for Right-to-Left Ticker */
     @keyframes ticker-right {
         from { transform: translateX(0%); }
         to { transform: translateX(-50%); }
@@ -73,7 +96,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Render the tickers
+# Render two tickers with duplicated content for seamless scrolling
 st.markdown(
     """
     <div class="ticker-wrapper">
@@ -91,6 +114,18 @@ st.markdown(
             <span>Financial Literacy</span>
             <span>Credit Card Management</span>
             <span>Inflation Protection</span>
+            <span>Tax Efficiency</span>
+            <span>Debt Reduction</span>
+            <span>Risk Assessment</span>
+            <span>Portfolio Diversification</span>
+            <span>Real Estate Investments</span>
+            <span>Expense Tracking</span>
+            <span>Retirement Accounts</span>
+            <span>Dividend Stocks</span>
+            <span>Insurance Planning</span>
+            <span>Long-Term Savings</span>
+            <span>401(k) Management</span>
+            <span>Asset Allocation</span>
         </div>
     </div>
     <div class="ticker-wrapper">
@@ -111,6 +146,15 @@ st.markdown(
             <span>Cash Flow Management</span>
             <span>Health Savings Accounts</span>
             <span>Economic Indicators</span>
+            <span>Stock Options</span>
+            <span>Interest Rates</span>
+            <span>Financial Planning</span>
+            <span>Monetary Policy</span>
+            <span>Angel Investing</span>
+            <span>Private Equity</span>
+            <span>Venture Capital</span>
+            <span>Startup Funding</span>
+            <span>Financial Risk</span>
         </div>
     </div>
     """,
@@ -122,9 +166,8 @@ st.title("💬 Money Mentor")
 
 # Subtitle with extra spacing
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
-st.markdown("<div class='extra-space'></div>", unsafe_allow_html=True)  # Keeps proper spacing
+st.markdown("<div class='subheader'></div>", unsafe_allow_html=True)  # Adds spacing below the subtitle
 
-# Input field
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
 if st.button("Ask", help="Click to get the response"):
@@ -133,7 +176,7 @@ if st.button("Ask", help="Click to get the response"):
             try:
                 response = requests.post("http://localhost:5000/chat", json={"query": query})
                 data = response.json()
-
+                
                 if "error" in data:
                     st.error("❌ " + data["error"])
                 else:
@@ -153,3 +196,4 @@ if st.button("Ask", help="Click to get the response"):
 
 st.markdown("---")
 st.caption("🌟 Powered by OpenAI & FAISS")
+
