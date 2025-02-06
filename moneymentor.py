@@ -4,54 +4,33 @@ import requests
 # Set Streamlit page configuration
 st.set_page_config(page_title="💬 Money Mentor", layout="centered")
 
-# Custom CSS for Styling
+# Apply native Streamlit styling instead of direct CSS
 st.markdown(
     """
     <style>
     .main {
         background-color: #f5f7fa;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
         min-height: 100vh;
-        padding: 0 20px;
+        padding: 20px;
     }
 
-    /* Centering input field and button */
-    .center-content {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-
-    /* Stylish Input Box */
-    .stTextInput > div > div {
-        border-radius: 12px !important;
-        border: 1px solid #ced4da !important;
-        padding: 10px !important;
-        background-color: white !important;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    /* Centered Content */
+    .stTextInput {
+        width: 60% !important;
     }
 
     /* Styled Button */
     .stButton > button {
-        color: white;
         background: linear-gradient(90deg, #4a90e2, #007aff);
-        border: none;
-        border-radius: 8px;
-        padding: 12px 24px;
-        cursor: pointer;
+        color: white;
+        border-radius: 10px;
+        padding: 12px 20px;
         font-size: 16px;
-        transition: 0.3s;
+        transition: 0.3s ease-in-out;
     }
     .stButton > button:hover {
-        background: linear-gradient(90deg, #007aff, #005bb5);
+        background: #005bb5;
         transform: scale(1.05);
-    }
-
-    /* Spacing Below Subtitle */
-    .extra-space {
-        margin-bottom: 50px;
     }
 
     /* Answer Box */
@@ -59,8 +38,14 @@ st.markdown(
         background-color: #ffffff;
         padding: 15px;
         border-radius: 8px;
-        box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-        margin-top: 10px;
+        border: 1px solid #e0e0e0;
+        box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.1);
+        margin-top: 20px;
+    }
+
+    /* Space Below Subtitle */
+    .extra-space {
+        margin-bottom: 40px;
     }
 
     /* Ticker Styles */
@@ -80,13 +65,13 @@ st.markdown(
     }
 
     .ticker-1 {
-        animation: ticker-left 60s linear infinite;
+        animation: ticker-left 70s linear infinite;
         color: #3c19a2;
         font-weight: bold;
     }
 
     .ticker-2 {
-        animation: ticker-right 60s linear infinite;
+        animation: ticker-right 70s linear infinite;
         color: #820b5c;
         font-weight: bold;
     }
@@ -142,10 +127,9 @@ st.title("💬 Money Mentor")
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
 st.markdown("<div class='extra-space'></div>", unsafe_allow_html=True)  # Adds more spacing
 
-# Centering the input field & button
-with st.container():
-    st.markdown("<div class='center-content'>", unsafe_allow_html=True)
-    
+# Centering input & button properly using Streamlit columns
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
     query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
     if st.button("Ask", help="Click to get the response"):
@@ -161,7 +145,7 @@ with st.container():
                         st.success("Here are your results! 🎉")
 
                         # Display answer in a nicely formatted box
-                        st.markdown("<div class='answer-box'>", unsafe_allow_html=True)
+                        st.markdown('<div class="answer-box">', unsafe_allow_html=True)
                         
                         st.subheader("📘 Concise Definition")
                         st.write(data.get("concise_definition", "No definition found."))
@@ -178,8 +162,6 @@ with st.container():
                     st.error("❌ Failed to connect to backend. Make sure your API is running.")
         else:
             st.warning("⚠️ Please enter a financial term.")
-
-    st.markdown("</div>", unsafe_allow_html=True)  # Close center div
 
 st.markdown("---")
 st.caption("🌟 Powered by OpenAI & FAISS")
