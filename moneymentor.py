@@ -47,26 +47,38 @@ st.markdown(
         background: #fff;
         padding: 8px 0;
     }
-    
+
     .ticker {
         display: flex;
         flex-wrap: nowrap;
         min-width: 100%;
-        animation: ticker-animation 30s linear infinite;
     }
 
     .ticker span {
         font-size: 16px;
         padding: 0 20px;
-        color: #192253;
         font-weight: bold;
         font-family: 'Calibri', sans-serif;
     }
 
-    /* Create seamless animation */
-    @keyframes ticker-animation {
-        from { transform: translateX(0%); }
-        to { transform: translateX(-50%); }
+    /* Animation for Ticker 1 (Left to Right) */
+    .ticker-1 {
+        animation: ticker-animation-left 15s linear infinite;
+    }
+
+    @keyframes ticker-animation-left {
+        from { transform: translateX(-100%); }
+        to { transform: translateX(100%); }
+    }
+
+    /* Animation for Ticker 2 (Right to Left) */
+    .ticker-2 {
+        animation: ticker-animation-right 15s linear infinite;
+    }
+
+    @keyframes ticker-animation-right {
+        from { transform: translateX(100%); }
+        to { transform: translateX(-100%); }
     }
     
     </style>
@@ -74,11 +86,11 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Create a continuously scrolling ticker
+# Create two continuously scrolling tickers in opposite directions
 st.markdown(
     """
     <div class="ticker-wrapper">
-        <div class="ticker">
+        <div class="ticker ticker-1">
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -104,31 +116,36 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
-            <span>Investing Strategies</span>
-            <span>Retirement Planning</span>
-            <span>Compound Interest</span>
-            <span>Stock Market</span>
-            <span>Wealth Management</span>
-            <span>Cryptocurrency Basics</span>
-            <span>Index Funds</span>
-            <span>Mutual Funds</span>
-            <span>Budgeting Tips</span>
-            <span>Emergency Fund</span>
-            <span>Financial Literacy</span>
-            <span>Credit Card Management</span>
-            <span>Inflation Protection</span>
-            <span>Tax Efficiency</span>
-            <span>Debt Reduction</span>
-            <span>Risk Assessment</span>
-            <span>Portfolio Diversification</span>
-            <span>Real Estate Investments</span>
-            <span>Expense Tracking</span>
-            <span>Retirement Accounts</span>
-            <span>Dividend Stocks</span>
-            <span>Insurance Planning</span>
-            <span>Long-Term Savings</span>
-            <span>401(k) Management</span>
-            <span>Asset Allocation</span>
+        </div>
+    </div>
+    
+    <div class="ticker-wrapper">
+        <div class="ticker ticker-2">
+            <span>Wealth Building</span>
+            <span>Tax Planning</span>
+            <span>Expense Optimization</span>
+            <span>Financial Goals</span>
+            <span>Capital Gains</span>
+            <span>Estate Planning</span>
+            <span>Hedge Funds</span>
+            <span>Social Security</span>
+            <span>Financial Independence</span>
+            <span>Investment Banking</span>
+            <span>Corporate Bonds</span>
+            <span>Day Trading</span>
+            <span>Passive Income</span>
+            <span>Cash Flow Management</span>
+            <span>Health Savings Accounts</span>
+            <span>Economic Indicators</span>
+            <span>Stock Options</span>
+            <span>Interest Rates</span>
+            <span>Financial Planning</span>
+            <span>Monetary Policy</span>
+            <span>Angel Investing</span>
+            <span>Private Equity</span>
+            <span>Venture Capital</span>
+            <span>Startup Funding</span>
+            <span>Financial Risk</span>
         </div>
     </div>
     """,
