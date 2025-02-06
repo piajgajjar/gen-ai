@@ -39,9 +39,9 @@ st.markdown(
         margin: 5px 0;
     }
     
-    /* Spacing between subtitle and input */
+    /* Increased Spacing between subtitle and input */
     .extra-space {
-        margin-bottom: 30px;
+        margin-bottom: 50px; /* Increased from 30px */
     }
 
     /* Ticker Styles */
@@ -160,9 +160,9 @@ st.markdown(
 # Page title
 st.title("💬 Money Mentor")
 
-# Subtitle with added spacing
+# Subtitle with extra spacing
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
-st.markdown("<div class='extra-space'></div>", unsafe_allow_html=True)  # Adds spacing below subtitle
+st.markdown("<div class='extra-space'></div>", unsafe_allow_html=True)  # Adds even more spacing
 
 # Input field
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
