@@ -51,7 +51,7 @@ st.markdown(
     .ticker {
         display: flex;
         flex-wrap: nowrap;
-        min-width: 100%;
+        min-width: 200%; /* Ensure smooth looping */
     }
 
     .ticker span {
@@ -63,7 +63,7 @@ st.markdown(
 
     /* Animation for Ticker 1 (Left to Right) */
     .ticker-1 {
-        animation: ticker-animation-left 15s linear infinite;
+        animation: ticker-animation-left 10s linear infinite;
     }
 
     @keyframes ticker-animation-left {
@@ -73,7 +73,7 @@ st.markdown(
 
     /* Animation for Ticker 2 (Right to Left) */
     .ticker-2 {
-        animation: ticker-animation-right 15s linear infinite;
+        animation: ticker-animation-right 10s linear infinite;
     }
 
     @keyframes ticker-animation-right {
@@ -86,7 +86,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Create two continuously scrolling tickers in opposite directions
+# Render two tickers
 st.markdown(
     """
     <div class="ticker-wrapper">
@@ -158,8 +158,6 @@ st.title("💬 Money Mentor")
 # Subtitle
 st.subheader("Ask me about financial terms, and I'll provide definitions, explanations, and sources!")
 
-# Move other components to the bottom
-st.markdown('<div class="bottom-section">', unsafe_allow_html=True)
 query = st.text_input("Enter a financial term:", placeholder="e.g., Compound Interest", help="Type any financial term you want to learn about.")
 
 if st.button("Ask", help="Click to get the response"):
@@ -185,8 +183,6 @@ if st.button("Ask", help="Click to get the response"):
                 st.error("❌ Failed to connect to backend. Make sure your API is running.")
     else:
         st.warning("⚠️ Please enter a financial term.")
-
-st.markdown('</div>', unsafe_allow_html=True)
 
 st.markdown("---")
 st.caption("🌟 Powered by OpenAI & FAISS")
