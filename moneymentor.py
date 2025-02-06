@@ -51,7 +51,16 @@ st.markdown(
     .ticker {
         display: inline-block;
         min-width: 200%; /* Ensures the content repeats seamlessly */
-        animation: ticker-animation 15s linear infinite;
+    }
+
+    /* Animation for Ticker 1 (Left to Right) */
+    .ticker-1 {
+        animation: ticker-left 20s linear infinite;
+    }
+
+    /* Animation for Ticker 2 (Right to Left) */
+    .ticker-2 {
+        animation: ticker-right 20s linear infinite;
     }
 
     .ticker span {
@@ -61,10 +70,16 @@ st.markdown(
         font-family: 'Calibri', sans-serif;
     }
 
-    /* Animation for seamless scrolling */
-    @keyframes ticker-animation {
+    /* Keyframes for Left-to-Right Ticker */
+    @keyframes ticker-left {
         from { transform: translateX(0); }
-        to { transform: translateX(-50%); } /* Moves by half of the total width */
+        to { transform: translateX(-50%); }
+    }
+
+    /* Keyframes for Right-to-Left Ticker */
+    @keyframes ticker-right {
+        from { transform: translateX(-50%); }
+        to { transform: translateX(0); }
     }
     </style>
     """,
@@ -75,7 +90,8 @@ st.markdown(
 st.markdown(
     """
     <div class="ticker-wrapper">
-        <div class="ticker">
+        <div class="ticker ticker-1">
+            <!-- Content for ticker 1 -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -101,7 +117,7 @@ st.markdown(
             <span>Long-Term Savings</span>
             <span>401(k) Management</span>
             <span>Asset Allocation</span>
-            <!-- Duplicate content -->
+            <!-- Duplicate content for seamless looping -->
             <span>Investing Strategies</span>
             <span>Retirement Planning</span>
             <span>Compound Interest</span>
@@ -130,7 +146,8 @@ st.markdown(
         </div>
     </div>
     <div class="ticker-wrapper">
-        <div class="ticker">
+        <div class="ticker ticker-2">
+            <!-- Content for ticker 2 -->
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
@@ -156,7 +173,7 @@ st.markdown(
             <span>Venture Capital</span>
             <span>Startup Funding</span>
             <span>Financial Risk</span>
-            <!-- Duplicate content -->
+            <!-- Duplicate content for seamless looping -->
             <span>Wealth Building</span>
             <span>Tax Planning</span>
             <span>Expense Optimization</span>
